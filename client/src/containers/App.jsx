@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import toastr from 'toastr';
 import jwtDecode from 'jwt-decode';
 
 import RouteHandler from '../routes';
 import { verifyAuth } from '../actions';
-import Preloader from '../components/Preloader';
 
 /**
  * @class
@@ -33,21 +31,6 @@ export class App extends Component {
     setTimeout(() => {
       $('.modal').modal();
     }, 800);
-
-    const socket = io();
-
-    socket.on('Added to group', ({ user, group, addedBy }) => {
-      if (user.id === this.props.user.id) {
-        toastr.info(`You have just been added to ${group.name} by ${addedBy}`);
-      }
-    });
-
-    socket.on('Removed from group', ({ user, group, removedBy }) => {
-      if (user.id === this.props.user.id) {
-        toastr.info(`You have just been removed from ${
-          group.name} by ${removedBy}`);
-      }
-    });
   }
 
   /**
@@ -65,7 +48,7 @@ export class App extends Component {
         { appRoutes }
         <div className="footer center">
           <span className="left">
-            <small> ©{(new Date()).getFullYear()} POSTIT</small>
+            <small> ©{(new Date()).getFullYear()} Oahray</small>
           </span>
           <span>
             <small> Bridging the communication gap...</small>

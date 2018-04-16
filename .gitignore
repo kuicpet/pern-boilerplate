@@ -1,6 +1,7 @@
 .DS_Store
 .nyc_output/
 .vscode/
+ex-src/
 /bin/
 coverage/
 node_modules/

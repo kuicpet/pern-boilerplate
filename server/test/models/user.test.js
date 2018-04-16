@@ -1,10 +1,7 @@
 import expect from 'expect';
-import { User, Group } from '../../models';
-import { doBeforeAll } from '../seeders/testHooks';
+import { User } from '../../models';
 
 describe('User model', () => {
-  doBeforeAll();
-
   it('should create a user instance', (done) => {
     User.create({
       username: 'testuser',

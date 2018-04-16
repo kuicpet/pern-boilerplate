@@ -1,8 +1,15 @@
+
+const dotenv = require('dotenv');
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
+
 module.exports = {
   development: {
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: 'postit-dev',
+    database: process.env.DEV_DB,
     host: '127.0.0.1',
     port: 5432,
     dialect: 'postgres'
@@ -10,7 +17,7 @@ module.exports = {
   test: {
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: 'postit-test',
+    database: process.env.TEST_DB,
     host: '127.0.0.1',
     port: 5432,
     dialect: 'postgres',
@@ -19,7 +26,7 @@ module.exports = {
   e2e: {
     username: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
-    database: 'postit-test',
+    database: process.env.TEST_DB,
     host: '127.0.0.1',
     port: 5432,
     dialect: 'postgres',

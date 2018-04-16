@@ -24,7 +24,7 @@ module.exports = {
       about: {
         type: Sequelize.STRING,
         allowNull: true,
-        defaultValue: 'New to Postit'
+        defaultValue: 'I am a new user'
       },
       imageUrl: {
         type: Sequelize.STRING,

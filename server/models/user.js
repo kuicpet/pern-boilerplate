@@ -24,7 +24,7 @@ export default (sequelize, DataTypes) => {
     about: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 'New to Postit'
+      defaultValue: 'I am a new user'
     },
     imageUrl: {
       type: DataTypes.STRING,
@@ -85,16 +85,8 @@ export default (sequelize, DataTypes) => {
     })
   );
 
-  User.associate = (models) => {
+  User.associate = () => {
     // associations can be defined here
-    User.hasMany(models.Message, {
-      as: 'userMessages',
-      foreignKey: 'userId'
-    });
-    User.belongsToMany(models.Group, {
-      through: models.UserGroup,
-      foreignKey: 'userId'
-    });
   };
   return User;
 };

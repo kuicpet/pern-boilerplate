@@ -1,12 +1,17 @@
 import fs from 'fs';
 import path from 'path';
 import Sequelize from 'sequelize';
+import dotenv from 'dotenv';
 import configs from '../config/config';
 
 const basename = path.basename(module.filename);
 const env = process.env.NODE_ENV || 'development';
 const config = configs[env];
 const db = {};
+
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config();
+}
 
 const sequelize = new Sequelize(config.database,
     config.username, config.password, config);
